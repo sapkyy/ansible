@@ -1,0 +1,8 @@
+---
+# tasks file for upgrade
+- name: Update and upgrade apt packages
+  become: false
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 # 1 day

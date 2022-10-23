@@ -1,0 +1,10 @@
+---
+# tasks file for pkg-install
+- name: Install pkg via apt
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - "{{ apt_package_names }}"
+  when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian') and apt_package_names is defined
