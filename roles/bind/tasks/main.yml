@@ -1,0 +1,10 @@
+---
+- name: Update sapkyy.home zone
+  template:
+    src: "{{ sapkyy_zone_src }}"
+    dest: "{{ sapkyy_zone_dst }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Reload bind

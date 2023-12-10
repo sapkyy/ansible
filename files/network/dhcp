@@ -1,0 +1,61 @@
+config dnsmasq
+        option domainneeded '1'
+        option localise_queries '1'
+        option rebind_protection '1'
+        option rebind_localhost '1'
+        option local '/lan/'
+        option domain 'lan'
+        option expandhosts '1'
+        option cachesize '1000'
+        option authoritative '1'
+        option readethers '1'
+        option leasefile '/tmp/dhcp.leases'
+        option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+        option localservice '1'
+        option ednspacket_max '1232'
+        option port '0'
+
+config dhcp 'lan'
+        option interface 'lan'
+        option start '100'
+        option limit '150'
+        option leasetime '12h'
+        option dhcpv4 'server'
+        list ra_flags 'managed-config'
+        list ra_flags 'other-config'
+        list dhcp_option '6,192.168.31.1'
+
+config dhcp 'wan'
+        option interface 'wan'
+        option ignore '1'
+
+config odhcpd 'odhcpd'
+        option maindhcp '0'
+        option leasefile '/tmp/hosts/odhcpd'
+        option leasetrigger '/usr/sbin/odhcpd-update'
+        option loglevel '4'
+
+config host
+        option mac '08:9D:F4:D0:C5:E6'
+        option ip '192.168.31.2'
+        option name 'sapkyy-laptop'
+
+config host
+        option name 'Xiaomi-13'
+        option mac '3E:68:AB:0C:30:26'
+        option ip '192.168.31.3'
+
+config host
+        option name 'pve.sapkyy.home'
+        option mac '50:E5:49:E2:18:8F'
+        option ip '192.168.31.101'
+
+config host
+        option name 'hq.sapkyy.home'
+        option mac 'BC:24:11:FB:33:8F'
+        option ip '192.168.31.102'
+
+config host
+        option name 'plex.sapkyy.home'
+        option mac 'BC:24:11:3B:B3:E6'
+        option ip '192.168.31.103'

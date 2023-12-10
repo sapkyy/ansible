@@ -1,0 +1,3 @@
+---
+sapkyy_zone_src: files/bind/sapkyy.home.dns
+sapkyy_zone_dst: /etc/bind/sapkyy.home.dns

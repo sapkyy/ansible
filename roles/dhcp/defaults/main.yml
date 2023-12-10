@@ -1,0 +1,3 @@
+---
+dhcp_src: files/network/dhcp
+dhcp_dst: /etc/config/dhcp

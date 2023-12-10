@@ -1,0 +1,10 @@
+---
+- name: Update dhcp
+  template:
+    src: "{{ dhcp_src }}"
+    dest: "{{ dhcp_dst }}"
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - Restart network
