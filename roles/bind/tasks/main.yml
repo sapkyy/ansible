@@ -8,3 +8,13 @@
     mode: 0644
   notify:
     - Reload bind
+
+- name: Update work config
+  template:
+    src: "{{ work_conf_src }}"
+    dest: "{{ work_conf_dst }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Reload bind

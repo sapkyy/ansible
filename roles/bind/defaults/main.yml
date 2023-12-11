@@ -1,3 +1,5 @@
 ---
 sapkyy_zone_src: files/bind/sapkyy.home.dns
 sapkyy_zone_dst: /etc/bind/sapkyy.home.dns
+work_conf_src: files/bind/named.conf.work
+work_conf_dst: /etc/bind/named.conf.work
