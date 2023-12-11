@@ -1,0 +1,14 @@
+---
+- name: Add user
+  user:
+    name: "{{ user }}"
+    password: "{{ user_password | password_hash('sha512') }}"
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+
+- name: Set authorized key
+  authorized_key:
+    user: "{{ user }}"
+    state: present
+    key: "{{ lookup('file', '{{ authorized_key }}') }}"

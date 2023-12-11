@@ -6,3 +6,6 @@
   vars:
     apt_package_names:
       - vim
+      - gnupg
+
+- import_playbook: add-user.yml

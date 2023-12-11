@@ -1,3 +1,6 @@
 [proxmox]
   hq.sapkyy.home
   plex.sapkyy.home
+
+[plex]
+  plex.sapkyy.home

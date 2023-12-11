@@ -57,5 +57,5 @@ config host
 
 config host
         option name 'plex.sapkyy.home'
-        option mac 'BC:24:11:3B:B3:E6'
+        option mac 'BC:24:11:5E:41:04'
         option ip '192.168.31.103'

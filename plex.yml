@@ -1,0 +1,10 @@
+---
+- hosts: plex
+  become: true
+  roles:
+    - pkg-install
+    - plex
+  vars:
+    apt_package_repo: deb https://downloads.plex.tv/repo/deb public main
+    apt_repo_key: https://downloads.plex.tv/plex-keys/PlexSign.key
+    apt_package_names: plexmediaserver
