@@ -1,0 +1,36 @@
+---
+- name: Copy nginx server block configs
+  template:
+    src: "{{ nginx_src_conf }}"
+    dest: "{{ nginx_dst_conf }}"
+    backup: false
+  notify:
+    - Reload nginx
+
+- name: Create ssl dir
+  file:
+    path: "{{ nginx_cert_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Copy servers cert
+  template:
+    src: "{{ nginx_src_cert }}"
+    dest: "{{ nginx_dst_cert }}"
+    owner: root
+    group: root
+    mode: 0644
+    backup: true
+  notify:
+    - Reload nginx
+
+- name: Copy servers key
+  template:
+    src: "{{ nginx_src_key }}"
+    dest: "{{ nginx_dst_key }}"
+    owner: root
+    group: root
+    mode: 0400
+    backup: true
+  notify:
+    - Reload nginx

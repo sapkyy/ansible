@@ -1,0 +1,8 @@
+---
+- hosts: nginx
+  become: true
+  roles:
+    - pkg-install
+    - nginx
+  vars:
+    apt_package_names: nginx=1.18.0-6ubuntu14.4

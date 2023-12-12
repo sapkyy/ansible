@@ -7,5 +7,6 @@
     apt_package_names:
       - vim
       - gnupg
+      - curl
 
 - import_playbook: add-user.yml

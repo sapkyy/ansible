@@ -4,3 +4,6 @@
 
 [plex]
   plex.sapkyy.home
+
+[nginx]
+  plex.sapkyy.home proxy_port=32400

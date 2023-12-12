@@ -1,0 +1,8 @@
+---
+nginx_src_conf: universal.conf.j2
+nginx_dst_conf: /etc/nginx/conf.d/{{ inventory_hostname }}.conf
+nginx_cert_dir: /etc/pki/nginx
+nginx_src_cert: wildcard.sapkyy.home.crt.j2
+nginx_dst_cert: "{{ nginx_cert_dir }}/wildcard.sapkyy.home.crt"
+nginx_src_key: wildcard.sapkyy.home.key.j2
+nginx_dst_key: "{{ nginx_cert_dir }}/wildcard.sapkyy.home.key"
