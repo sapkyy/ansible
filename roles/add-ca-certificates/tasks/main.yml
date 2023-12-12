@@ -1,8 +1,9 @@
 ---
-- name: Add ca certificate
-  template:
-    src: "{{ ca_cert_src }}"
+- name: Copy ca certificate
+  copy:
+    src: "{{ item }}"
     dest: "{{ ca_cert_dst }}"
-    backup: false
+  with_fileglob:
+    - "{{ ca_cert_src }}*"
   notify:
     - Update ca certificates
