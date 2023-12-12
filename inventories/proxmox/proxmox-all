@@ -1,9 +1,14 @@
 [proxmox]
+  pve.sapkyy.home
   hq.sapkyy.home
   plex.sapkyy.home
+
+[head]
+  pve.sapkyy.home
 
 [plex]
   plex.sapkyy.home
 
 [nginx]
-  plex.sapkyy.home proxy_port=32400
+  plex.sapkyy.home proxy_port=32400 upstream_scheme=http
+  pve.sapkyy.home proxy_port=8006 upstream_scheme=https

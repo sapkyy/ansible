@@ -8,6 +8,7 @@
       - vim
       - gnupg
       - curl
+      - sudo
 
 - import_playbook: add-user.yml
 - import_playbook: add-ca-certificates.yml
