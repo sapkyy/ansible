@@ -1,0 +1,8 @@
+---
+- name: Add ca certificate
+  template:
+    src: "{{ ca_cert_src }}"
+    dest: "{{ ca_cert_dst }}"
+    backup: false
+  notify:
+    - Update ca certificates

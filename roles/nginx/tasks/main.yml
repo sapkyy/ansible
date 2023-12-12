@@ -1,8 +1,8 @@
 ---
 - name: Copy nginx server block configs
   template:
-    src: "{{ nginx_src_conf }}"
-    dest: "{{ nginx_dst_conf }}"
+    src: "{{ nginx_conf_src }}"
+    dest: "{{ nginx_conf_dst }}"
     backup: false
   notify:
     - Reload nginx
@@ -15,22 +15,22 @@
 
 - name: Copy servers cert
   template:
-    src: "{{ nginx_src_cert }}"
-    dest: "{{ nginx_dst_cert }}"
+    src: "{{ nginx_cert_src }}"
+    dest: "{{ nginx_cert_dst }}"
     owner: root
     group: root
     mode: 0644
-    backup: true
+    backup: false
   notify:
     - Reload nginx
 
 - name: Copy servers key
   template:
-    src: "{{ nginx_src_key }}"
-    dest: "{{ nginx_dst_key }}"
+    src: "{{ nginx_key_src }}"
+    dest: "{{ nginx_key_dst }}"
     owner: root
     group: root
     mode: 0400
-    backup: true
+    backup: false
   notify:
     - Reload nginx

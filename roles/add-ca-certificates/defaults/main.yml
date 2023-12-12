@@ -1,0 +1,3 @@
+---
+ca_cert_src: files/certificates/ca_sapkyy_home.crt
+ca_cert_dst: /usr/local/share/ca-certificates

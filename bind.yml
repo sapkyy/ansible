@@ -1,5 +1,5 @@
 ---
-- hosts: router
+- hosts: network
   become: true
   roles:
     - bind
