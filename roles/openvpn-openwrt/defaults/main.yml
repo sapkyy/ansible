@@ -10,7 +10,7 @@ network_src: files/router/config/network.j2
 network_dst: /etc/config/network
 firewall_src: files/router/config/firewall
 firewall_dst: /etc/config/firewall
-pbr_src: files/router/config/pbr
+pbr_src: files/router/config/pbr.j2
 pbr_dst: /etc/config/pbr 
 ovpn_services:
   - openvpn_tun10

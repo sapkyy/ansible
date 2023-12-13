@@ -5,6 +5,8 @@
     dest: "{{ ovpn_files_dst }}"
   with_fileglob:
     - "{{ ovpn_files_src }}*"
+  tags:
+  - update_openvpn_files
 
 - name: Create scripts directory
   file:
@@ -18,6 +20,8 @@
     mode: 0755
   with_fileglob:
      - "{{ ovpn_scripts_tmpl }}"
+  tags:
+  - update_openvpn_scripts
 
 - name: Update procd scripts
   template:
@@ -26,6 +30,8 @@
     mode: 0755
   with_fileglob:
      - "{{ ovpn_procd_tmpl }}"
+  tags:
+  - update_procd_scripts
 
 - name: Start and enable openvpn services
   service:
@@ -41,6 +47,8 @@
     mode: 0600
   notify:
     - Restart network
+  tags:
+  - update_network_settings
 
 - name: Update firewall settings
   template:
@@ -48,15 +56,21 @@
     dest: "{{ firewall_dst }}"
   notify:
     - Reload firewall
+  tags:
+  - update_firewall_settings
 
 - name: Update pbr settings
   template:
     src: "{{ pbr_src }}"
     dest: "{{ pbr_dst }}"
   notify:
-    - Restart pbr 
+    - Restart pbr
+  tags:
+  - update_pbr_settings
 
 - name: Trigger final restart openvpn services
   command: /bin/true
   notify: 
     - Restart openvpn services
+  tags:
+  - always

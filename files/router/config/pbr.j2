@@ -33,7 +33,7 @@ config policy
 config policy
         option name 'Blocked_domains'
         option interface 'openvpn_tun11'
-        option dest_addr 'instagram.com facebook.com meduza.io kinozal.tv'
+        option dest_addr '{{ blocked_domains }}'
 
 config policy
         option name 'openvpn_tun10'

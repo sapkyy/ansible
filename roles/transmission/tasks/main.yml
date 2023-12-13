@@ -12,7 +12,7 @@
     group: debian-transmission
     mode: 0600
 
-- name: Stop transmission-daemon after configure
+- name: Start transmission-daemon after configure
   service:
     name: transmission-daemon
     state: started

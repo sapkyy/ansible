@@ -3,7 +3,7 @@
   become: true
   roles:
     - pkg-install
-    # - transmission
+    - transmission
   vars:
     apt_package_names: 
       - transmission-daemon
