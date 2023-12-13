@@ -9,6 +9,7 @@
       - gnupg
       - curl
       - sudo
+      - traceroute
 
 - import_playbook: add-user.yml
 - import_playbook: add-ca-certificates.yml

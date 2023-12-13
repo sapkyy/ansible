@@ -11,5 +11,6 @@ start_service() {
 }
 
 stop_service() {
-    killall -SIGINT openvpn
+    PROCESS_PID=$(ps | grep -v 'openvpn --config {{ ovpn_files_dst }}/russia*' | grep 'openvpn --config {{ ovpn_files_dst }}/*'| grep -v grep | sed 's/root.*//')
+    kill -SIGINT $PROCESS_PID
 }

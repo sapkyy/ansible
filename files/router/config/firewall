@@ -20,7 +20,7 @@ config zone
         option mtu_fix '1'
         list network 'wan'
         list network 'wan6'
-# Allow wan access for tun interfaces
+        # Allow wan access for tun interfaces
         list device 'tun0'
         list device 'tun10'
         list device 'tun11'

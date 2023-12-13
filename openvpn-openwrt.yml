@@ -5,4 +5,7 @@
     - pkg-install
     - openvpn-openwrt
   vars:
-    opkg_package_names: openvpn-openssl
+    opkg_package_names: 
+      - openvpn-openssl
+      - pbr
+      - luci-app-pbr

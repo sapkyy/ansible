@@ -8,3 +8,20 @@
   service:
     name: firewall
     state: reloaded
+
+- name: Restart pbr
+  service:
+    name: pbr
+    state: restarted
+    
+- name: Restart rpcd
+  service:
+    name: rpcd
+    state: restarted
+
+- name: Restart openvpn services
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  with_items: "{{ ovpn_services }}"

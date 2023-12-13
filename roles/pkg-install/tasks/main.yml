@@ -4,32 +4,28 @@
     repo: "{{ item }}"
     state: present
     update_cache: false
-  loop:
-    - "{{ apt_package_repo }}"
+  loop: "{{ apt_package_repo }}"
   when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian') and apt_package_repo is defined
 
 - name: Add apt repository key
   apt_key:
     url: "{{ item }}"
     state: present
-  loop:
-    - "{{ apt_repo_key }}"
-  when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian') and apt_repo_key is defined
+  loop: "{{ apt_repo_key }}"
+  when: ansible_os_family == 'Debian' and apt_repo_key is defined
 
 - name: Install pkg via apt
   apt:
     name: "{{ item }}"
     state: present
     update_cache: true
-  loop:
-    - "{{ apt_package_names }}"
-  when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian') and apt_package_names is defined
+  loop: "{{ apt_package_names }}"
+  when: ansible_os_family == 'Debian' and apt_package_names is defined
 
 - name: Install pkg via opkg
   opkg:
     name: "{{ item }}"
     state: present
     update_cache: true
-  loop:
-    - "{{ opkg_package_names }}"
+  loop: "{{ opkg_package_names }}"
   when: ansible_distribution == 'OpenWrt' and opkg_package_names is defined

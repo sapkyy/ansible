@@ -41,7 +41,7 @@ config host
         option name 'sapkyy-laptop'
 
 config host
-        option name 'Xiaomi-13'
+        option name 'xiaomi-13'
         option mac '3E:68:AB:0C:30:26'
         option ip '192.168.31.3'
 
@@ -64,3 +64,8 @@ config host
         option name 'transmission.sapkyy.home'
         option mac 'BC:24:11:5D:81:C2'
         option ip '192.168.31.104'
+
+config host
+        option name 'iphone12-Svetlana'
+        option mac '2A:AF:DD:F8:D3:09'
+        option ip '192.168.31.4'

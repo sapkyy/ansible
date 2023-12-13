@@ -1,4 +1,3 @@
-
 config interface 'loopback'
         option device 'lo'
         option proto 'static'
@@ -26,8 +25,8 @@ config interface 'lan'
 config interface 'wan'
         option device 'wan'
         option proto 'pppoe'
-        option username '77663915030'
-        option password 't7_uNZVrZzw'
+        option username '{{ provider_login }}'
+        option password '{{ provider_password }}'
         option ipv6 'auto'
         option persist 'true'
         option maxfail '0'
@@ -37,34 +36,10 @@ config interface 'wan6'
         option device 'wan'
         option proto 'dhcpv6'
 
-# openvpn_tun configs
-config route
-        option target '0.0.0.0'
-        option netmask '0.0.0.0'
-        option metric '100'
-        option table 'openvpn_tun10'
-        option interface 'tun10'
-
-config rule
-        option src '192.168.31.104/32'
-        option lookup 'openvpn_tun10'
-
 config interface 'openvpn_tun10'
         option proto 'none'
         option device 'tun10'
 
-config route
-        option target '0.0.0.0'
-        option netmask '0.0.0.0'
-        option metric '100'
-        option table 'openvpn_tun10'
-        option interface 'tun10'
-
-config rule
-        option src '192.168.31.144/32'
-        option lookup 'openvpn_tun11'
-
 config interface 'openvpn_tun11'
         option proto 'none'
         option device 'tun11'
-###
