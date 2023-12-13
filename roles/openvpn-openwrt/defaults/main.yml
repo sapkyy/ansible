@@ -1,0 +1,19 @@
+---
+ovpn_files_src: files/openvpn/
+ovpn_files_dst: /etc/openvpn/client
+ovpn_scripts_src: openvpn.service
+ovpn_scripts_dst: /etc/openvpn/scripts
+ovpn_scripts_tmpl: templates/openvpn_tun*script.sh.j2
+ovpn_procd_dst: /etc/init.d
+ovpn_procd_tmpl: templates/openvpn_tun*procd.j2
+network_src: files/router/config/network
+network_dst: /etc/config/network
+route_tables_src: files/router/iproute2/rt_tables
+route_tables_dst: /etc/iproute2/rt_tables
+table_route_src: files/router/hotplug.d/iface/30-openvpn
+table_route_dst: /etc/hotplug.d/iface/30-openvpn
+firewall_src: files/router/config/firewall
+firewall_dst: /etc/config/firewall
+ovpn_services:
+  - openvpn_tun10
+  - openvpn_tun11

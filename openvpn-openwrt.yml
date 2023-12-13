@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - pkg-install
+    - openvpn-openwrt
+  vars:
+    opkg_package_names: openvpn-openssl

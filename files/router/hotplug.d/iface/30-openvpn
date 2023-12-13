@@ -1,0 +1,3 @@
+#!/bin/sh
+ip route add table openvpn_tun10 default dev tun10
+ip route add table openvpn_tun11 default dev tun11

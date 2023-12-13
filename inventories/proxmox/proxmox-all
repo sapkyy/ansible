@@ -2,13 +2,18 @@
   pve.sapkyy.home
   hq.sapkyy.home
   plex.sapkyy.home
-
+  transmission.sapkyy.home
+ 
 [head]
   pve.sapkyy.home
 
 [plex]
   plex.sapkyy.home
 
+[transmission]
+  transmission.sapkyy.home
+
 [nginx]
   plex.sapkyy.home proxy_port=32400 upstream_scheme=http
   pve.sapkyy.home proxy_port=8006 upstream_scheme=https
+  transmission.sapkyy.home proxy_port=9091 upstream_scheme=http

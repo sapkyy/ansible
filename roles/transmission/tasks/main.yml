@@ -1,0 +1,19 @@
+---
+- name: Stop transmission-daemon before configure
+  service:
+    name: transmission-daemon
+    state: stopped
+
+- name: Update settings.json
+  template:
+    src: "{{ settings_src }}"
+    dest: "{{ settings_dst }}"
+    owner: debian-transmission
+    group: debian-transmission
+    mode: 0600
+
+- name: Stop transmission-daemon after configure
+  service:
+    name: transmission-daemon
+    state: started
+    enabled: true

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - pkg-install
+    # - xrdp
+  vars:
+    apt_package_names:
+      - xrdp
+      - xfce4
+      - xfce4-terminal

@@ -1,0 +1,20 @@
+---
+- name: Add openvpn files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ ovpn_dst }}"
+  with_fileglob:
+    - "{{ ovpn_src }}*"
+
+- name: Copy openvpn service
+  template:
+    src: "{{ ovpn_service_src }}"
+    dest: "{{ ovpn_service_dst }}"
+  notify:
+    - Restart openvpn
+
+- name: Start and enable Openvpn service
+  service:
+    name: openvpn
+    state: started
+    enabled: true

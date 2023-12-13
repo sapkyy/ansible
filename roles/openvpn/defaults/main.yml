@@ -1,0 +1,5 @@
+---
+ovpn_src: files/openvpn/
+ovpn_dst: /etc/openvpn/client/
+ovpn_service_src: openvpn.service
+ovpn_service_dst: /lib/systemd/system/openvpn.service
