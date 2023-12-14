@@ -3,7 +3,7 @@ USE_PROCD=1
 START=96
 start_service() {
     procd_open_instance
-    procd_set_param command /bin/sh "{{ ovpn_scripts_dst }}/openvpn_tun10.sh"
+    procd_set_param command /bin/sh "{{ openvpn_scripts_dst }}/openvpn_tun10.sh"
     procd_set_param stdout 1
     procd_set_param stderr 1
     procd_set_param respawn ${respawn_threshold:-3600} ${respawn_timeout:-5} ${respawn_retry:-50}
@@ -11,6 +11,6 @@ start_service() {
 }
 
 stop_service() {
-    PROCESS_PID=$(ps | grep 'openvpn --config {{ ovpn_files_dst }}/russia*' | grep -v grep | sed 's/root.*//')
+    PROCESS_PID=$(ps | grep 'openvpn --config {{ openvpn_files_dst }}/russia*' | grep -v grep | sed 's/root.*//')
     kill -SIGINT $PROCESS_PID
 }

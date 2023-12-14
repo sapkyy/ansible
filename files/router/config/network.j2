@@ -36,6 +36,10 @@ config interface 'wan6'
         option device 'wan'
         option proto 'dhcpv6'
 
+config interface 'openconnect_tun0'
+        option proto 'none'
+        option device 'tun0'
+
 config interface 'openvpn_tun10'
         option proto 'none'
         option device 'tun10'

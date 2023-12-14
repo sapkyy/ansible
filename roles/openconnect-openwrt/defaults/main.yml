@@ -1,0 +1,11 @@
+---
+openconnect_scripts_dst: /etc/openconnect/scripts
+openconnect_scripts_tmpl: templates/openconnect_tun*script.sh.j2
+openconnect_procd_dst: /etc/init.d
+openconnect_procd_tmpl: templates/openconnect_tun*procd.j2
+network_src: files/router/config/network.j2
+network_dst: /etc/config/network
+firewall_src: files/router/config/firewall
+firewall_dst: /etc/config/firewall
+openconnect_services:
+  - openconnect_tun0

@@ -2,34 +2,34 @@
 - name: Update openvpn files
   copy:
     src: "{{ item }}"
-    dest: "{{ ovpn_files_dst }}"
+    dest: "{{ openvpn_files_dst }}"
   with_fileglob:
-    - "{{ ovpn_files_src }}*"
+    - "{{ openvpn_files_src }}*"
   tags:
   - update_openvpn_files
 
 - name: Create scripts directory
   file:
-    path: "{{ ovpn_scripts_dst }}"
+    path: "{{ openvpn_scripts_dst }}"
     state: directory
 
 - name: Update openvpn scripts
   template:
     src:  "{{ item }}"
-    dest: "{{ ovpn_scripts_dst }}/{{ item | basename | regex_replace('_script','') | regex_replace('.j2','') }}"
+    dest: "{{ openvpn_scripts_dst }}/{{ item | basename | regex_replace('_script','') | regex_replace('.j2','') }}"
     mode: 0755
   with_fileglob:
-     - "{{ ovpn_scripts_tmpl }}"
+     - "{{ openvpn_scripts_tmpl }}"
   tags:
   - update_openvpn_scripts
 
 - name: Update procd scripts
   template:
     src:  "{{ item }}"
-    dest: "{{ ovpn_procd_dst }}/{{ item | basename | regex_replace('_procd','') | regex_replace('.j2','') }}"
+    dest: "{{ openvpn_procd_dst }}/{{ item | basename | regex_replace('_procd','') | regex_replace('.j2','') }}"
     mode: 0755
   with_fileglob:
-     - "{{ ovpn_procd_tmpl }}"
+     - "{{ openvpn_procd_tmpl }}"
   tags:
   - update_procd_scripts
 
@@ -38,7 +38,7 @@
     name: "{{ item }}"
     state: started
     enabled: true
-  with_items: "{{ ovpn_services }}"
+  with_items: "{{ openvpn_services }}"
 
 - name: Update network settings
   template:
@@ -68,7 +68,7 @@
   tags:
   - update_pbr_settings
 
-- name: Trigger final stop/start openvpn openvpn services
+- name: Trigger final stop/start openvpn services
   command: /bin/true
   notify: 
     - Stop/start openvpn

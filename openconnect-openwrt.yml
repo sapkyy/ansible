@@ -3,9 +3,7 @@
   become: true
   roles:
     - pkg-install
-    - openvpn-openwrt
+    - openconnect-openwrt
   vars:
     opkg_package_names: 
-      - openvpn-openssl
-      - pbr
-      - luci-app-pbr
+      - openconnect
