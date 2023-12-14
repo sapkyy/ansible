@@ -68,9 +68,9 @@
   tags:
   - update_pbr_settings
 
-- name: Trigger final restart openvpn services
+- name: Trigger final stop/start openvpn openvpn services
   command: /bin/true
   notify: 
-    - Restart openvpn services
+    - Stop/start openvpn
   tags:
   - always

@@ -1,24 +1,24 @@
+upstream {{ inventory_hostname | replace('.sapkyy.home','')  }} {
+    server {{ inventory_hostname }};
+}
+
 server {
     server_name {{ inventory_hostname }};
     listen 443 ssl;
-
-    ssl_certificate "/etc/pki/nginx/sapkyy.home.crt";
-    ssl_certificate_key "/etc/pki/nginx/sapkyy.home.key";
-    ssl_session_cache shared:SSL:1m;
-    ssl_session_timeout  10m;
-
-    client_max_body_size 100M;
-
-    access_log /var/log/nginx/{{ inventory_hostname }}_access.log;
-    error_log  /var/log/nginx/{{ inventory_hostname }}_error.log;
-
+    server_name _;
+    ssl_certificate /etc/pki/nginx/sapkyy.home.crt;
+    ssl_certificate_key /etc/pki/nginx/sapkyy.home.key;
+    proxy_redirect off;
     location / {
-      proxy_pass {{ upstream_scheme }}://127.0.0.1:{{ proxy_port }};
-      proxy_set_header Host $host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-for $remote_addr;
-      port_in_redirect off;
-      proxy_redirect {{ upstream_scheme }}://127.0.0.1:{{ proxy_port }}/ /;
-      proxy_connect_timeout 600;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade"; 
+        proxy_pass {{ upstream_scheme }}://localhost:{{ proxy_port }};
+      	proxy_buffering off;
+      	client_max_body_size 0;
+      	proxy_connect_timeout  3600s;
+        proxy_read_timeout  3600s;
+        proxy_send_timeout  3600s;
+        send_timeout  3600s;
     }
 }

@@ -19,9 +19,18 @@
     name: rpcd
     state: restarted
 
-- name: Restart openvpn services
+- name: Stop openvpn services
   service:
     name: "{{ item }}"
-    state: restarted
+    state: stopped
     enabled: true
   with_items: "{{ ovpn_services }}"
+  listen: "Stop/start openvpn"
+
+- name: Start openvpn services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items: "{{ ovpn_services }}"
+  listen: "Stop/start openvpn"
