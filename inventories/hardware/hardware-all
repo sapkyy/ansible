@@ -3,3 +3,6 @@
 
 [router]
   router.sapkyy.home
+
+[nginx]
+  router.sapkyy.home proxy_port=8080 upstream_scheme=http

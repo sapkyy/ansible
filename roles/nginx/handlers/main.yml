@@ -1,5 +1,10 @@
 ---
+- name: Reload uhttpd
+  service:
+    name: uhttpd
+    state: reloaded
+
 - name: Reload nginx
-  systemd:
+  service:
     name: nginx
     state: reloaded

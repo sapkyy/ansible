@@ -6,3 +6,5 @@
     - nginx
   vars:
     apt_package_names: nginx=1.18.0-6ubuntu14.4
+    opkg_package_names:
+      - nginx-ssl

@@ -1,4 +1,6 @@
 ---
+uhttpd_conf_src: files/router/config/uhttpd
+uhttpd_conf_dst: /etc/config/uhttpd
 nginx_conf_src: universal.conf.j2
 nginx_conf_dst: /etc/nginx/conf.d/{{ inventory_hostname }}.conf
 nginx_cert_dir: /etc/pki/nginx

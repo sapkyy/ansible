@@ -1,5 +1,14 @@
 ---
-- name: Copy nginx server block configs
+- name: Update uhttpd config
+  template:
+    src: "{{ uhttpd_conf_src }}"
+    dest: "{{ uhttpd_conf_dst }}"
+    backup: false
+  notify:
+    - Reload uhttpd
+  when: ansible_distribution == 'OpenWrt'
+
+- name: Update nginx server config
   template:
     src: "{{ nginx_conf_src }}"
     dest: "{{ nginx_conf_dst }}"
@@ -13,7 +22,7 @@
     state: directory
     mode: 0755
 
-- name: Copy servers cert
+- name: Update servers cert
   template:
     src: "{{ nginx_cert_src }}"
     dest: "{{ nginx_cert_dst }}"
@@ -24,7 +33,7 @@
   notify:
     - Reload nginx
 
-- name: Copy servers key
+- name: Update servers key
   template:
     src: "{{ nginx_key_src }}"
     dest: "{{ nginx_key_dst }}"
@@ -34,3 +43,7 @@
     backup: false
   notify:
     - Reload nginx
+
+- name: Assign main nginx config for OpenWRT
+  shell: 'nginx -T -c /etc/nginx/uci.conf'
+  when: ansible_distribution == 'OpenWrt'
