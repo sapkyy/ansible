@@ -1,6 +1,0 @@
----
-- name: Restart openvpn
-  systemd:
-    name: openvpn
-    daemon_reload: true
-    state: restarted

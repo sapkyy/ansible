@@ -125,10 +125,29 @@ config rule
 config redirect
         option dest 'lan'
         option target 'DNAT'
-        option name 'duckdns'
-        option family 'ipv4'
+        option name 'Froward-SSH-External'
         list proto 'tcp'
         option src 'wan'
-        option src_dport '222'
+        option src_dport '56022'
         option dest_ip '192.168.31.1'
         option dest_port '22'
+
+config redirect
+        option dest 'lan'
+        option target 'DNAT'
+        option name 'Forward-Plex-External'
+        list proto 'tcp'
+        option src 'wan'
+        option src_dport '32400'
+        option dest_ip '192.168.31.103'
+        option dest_port '32400'
+
+config redirect
+        option dest 'lan'
+        option target 'DNAT'
+        option name 'Forward-Transmission-External'
+        list proto 'tcp'
+        option src 'wan'
+        option src_dport '9091'
+        option dest_ip '192.168.31.104'
+        option dest_port '9091'

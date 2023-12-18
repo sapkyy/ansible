@@ -1,0 +1,10 @@
+---
+- name: Restart ddns
+  service:
+    name: ddns
+    state: restarted
+
+- name: Reload firewall
+  service:
+    name: firewall
+    state: reloaded

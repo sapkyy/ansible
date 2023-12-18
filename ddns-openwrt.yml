@@ -1,0 +1,10 @@
+---
+- hosts: router
+  become: true
+  roles:
+    - pkg-install
+    - ddns-openwrt
+  vars:
+    opkg_package_names: 
+      - ddns-scripts
+      - luci-app-ddns

@@ -1,0 +1,9 @@
+---
+ddns_src: files/router/config/ddns.j2
+ddns_dst: /etc/config/ddns
+ddns_lookup_hosts: sapkyy.duckdns.org
+ddns_lookup_domains: sapkyy.duckdns.org
+wan_ip_script_src: check-wan-ip.sh
+wan_ip_script_dst: /etc/hotplug.d/iface/90-check-wan-ip.sh
+firewall_src: files/router/config/firewall
+firewall_dst: /etc/config/firewall

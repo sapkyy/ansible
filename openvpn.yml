@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: true
-  roles:
-    - pkg-install
-    - openvpn
-  vars:
-    apt_package_names: 
-      - openvpn

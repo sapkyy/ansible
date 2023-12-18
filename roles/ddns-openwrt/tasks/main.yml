@@ -1,0 +1,31 @@
+---
+- name: Start and enable ddns service
+  service:
+    name: ddns
+    state: started
+    enabled: true
+
+- name: Update ddns settings
+  template:
+    src: "{{ ddns_src }}"
+    dest: "{{ ddns_dst }}"
+  notify:
+    - Restart ddns
+  tags:
+  - update_ddns_settings
+
+- name: Add wan-ip script
+  template:
+    src: "{{ wan_ip_script_src }}"
+    dest: "{{ wan_ip_script_dst }}"
+  tags:
+  - update_wan_ip_script
+
+- name: Update firewall settings (port forwarding/traffic rules)
+  template:
+    src: "{{ firewall_src }}"
+    dest: "{{ firewall_dst }}"
+  notify:
+    - Reload firewall
+  tags:
+  - update_firewall_settings
