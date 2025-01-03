@@ -29,20 +29,3 @@ config policy
         option interface 'wan'
         option src_port '8096 8920 32400'
         option enabled '0'
-
-config policy
-        option name 'Blocked_domains'
-        option interface 'openvpn_tun11'
-        option dest_addr '{{ blocked_domains }}'
-
-# transmission routing via vpn
-config policy
-        option name 'openvpn_tun10'
-        option src_addr '192.168.31.104'
-        option interface 'openvpn_tun10'
-
-# plex routing via vpn
-config policy
-        option name 'openvpn_tun10'
-        option src_addr '192.168.31.103'
-        option interface 'openvpn_tun10'
