@@ -13,6 +13,9 @@
 [transmission]
   transmission.sapkyy.home
 
+[docker]
+  docker.sapkyy.home
+
 [nginx]
   plex.sapkyy.home proxy_port=32400 upstream_scheme=http
   pve.sapkyy.home proxy_port=8006 upstream_scheme=https

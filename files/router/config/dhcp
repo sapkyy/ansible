@@ -66,6 +66,6 @@ config host
         option ip '192.168.31.104'
 
 config host
-        option name 'iphone12-Svetlana'
-        option mac '2A:AF:DD:F8:D3:09'
-        option ip '192.168.31.4'
+        option name 'docker.sapkyy.home'
+        option mac 'BC:24:11:A4:03:B2'
+        option ip '192.168.31.105'

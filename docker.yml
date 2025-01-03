@@ -1,0 +1,8 @@
+---
+- hosts: docker
+  become: true
+  roles:
+    - pkg-install
+    - docker
+  vars:
+    apt_package_names: docker.io
