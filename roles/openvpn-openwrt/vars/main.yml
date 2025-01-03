@@ -12,3 +12,16 @@ blocked_domains:
   marketplace.atlassian.com
   strava.com
   www.strava.com
+  chat.openai.com
+  auth.openai.com
+  auth0.openai.com
+  platform.openai.com
+  api.openai.com
+  openai.com
+  chatgpt.com
+  instagram.com
+  www.instagram.com
+  static.cdninstagram.com
+  facebook.com
+  www.facebook.com
+  static.xx.fbcdn.net

@@ -1,6 +1,4 @@
 #!/bin/sh
-openvpn --config "/etc/openvpn/client/serbia_belgrad_s3.ovpn" --route-noexec || \
-openvpn --config "/etc/openvpn/client/belgium_oostkamp_s1.ovpn" --route-noexec || \
-openvpn --config "/etc/openvpn/client/latvia_riga_l1.ovpn" --route-noexec || \
-openvpn --config "/etc/openvpn/client/poland_warsaw_s5.ovpn" --route-noexec
+openvpn --config "/etc/openvpn/client/norway_oslo.ovpn" --dev tun11 --route-noexec || \
+openvpn --config "/etc/openvpn/client/canada_quebec.ovpn" --dev tun11 --route-noexec
 exit 0

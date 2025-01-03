@@ -30,5 +30,6 @@
     name: "{{ item }}"
     state: present
     update_cache: true
+  ignore_errors: yes
   loop: "{{ opkg_package_names }}"
   when: ansible_distribution == 'OpenWrt' and opkg_package_names is defined

@@ -1,29 +1,4 @@
-zone "vsegda.da" {
+zone "mtsbank.ru" {
     type forward;
-    forwarders { 192.168.212.105; 192.168.212.68; 192.168.216.98; };
-};
-
-zone "wr.vsn" {
-    type forward;
-    forwarders { 192.168.212.105; 192.168.212.68; 192.168.216.98; };
-};
-
-zone "knk.ss" {
-    type forward;
-    forwarders { 192.168.212.105; 192.168.212.68; 192.168.216.98; };
-};
-
-zone "civi.mart" {
-    type forward;
-    forwarders { 192.168.212.105; 192.168.212.68; 192.168.216.98; };
-};
-
-zone "home.bank" {
-    type forward;
-    forwarders { 192.168.212.105; 192.168.212.68; 192.168.216.98; };
-};
-
-zone "homecredit.ru" {
-    type forward;
-    forwarders { 192.168.212.105; 192.168.212.68; 192.168.216.98; };
+    forwarders { 77.88.8.8; 77.88.8.1; };
 };
