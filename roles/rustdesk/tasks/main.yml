@@ -1,0 +1,36 @@
+---
+- name: Create data directory for RustDesk
+  file:
+    path: "{{ rustdesk_data_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Pull RustDesk Docker image
+  docker_image:
+    name: "{{ docker_image }}"
+    tag: "{{ rustdesk_version }}"
+    source: pull
+
+- name: Run RustDesk hbbs (broker) container
+  docker_container:
+    name: "{{ docker_container_name }}-hbbs"
+    image: "{{ docker_image }}:{{ rustdesk_version }}"
+    command: "hbbs"
+    state: started
+    restart_policy: always
+    network_mode: "host"
+    volumes:
+      - "{{ rustdesk_data_dir }}:{{ container_data_dir }}"
+
+- name: Run RustDesk hbbr (relay) container
+  docker_container:
+    name: "{{ docker_container_name }}-hbbr"
+    image: "{{ docker_image }}:{{ rustdesk_version }}"
+    command: "hbbr"
+    state: started
+    restart_policy: always
+    network_mode: "host"
+    volumes:
+      - "{{ rustdesk_data_dir }}:{{ container_data_dir }}"

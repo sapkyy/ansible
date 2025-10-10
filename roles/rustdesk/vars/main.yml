@@ -1,0 +1,6 @@
+---
+rustdesk_version: "1.1.14"
+apt_package_names:
+  - python3-pip
+  - python3-requests
+  - python3-docker

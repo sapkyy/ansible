@@ -1,0 +1,6 @@
+---
+rustdesk_version: "1.1.14"
+docker_image: "rustdesk/rustdesk-server"
+docker_container_name: "rustdesk-server"
+rustdesk_data_dir: "/opt/rustdesk/data"
+container_data_dir: "/root"
