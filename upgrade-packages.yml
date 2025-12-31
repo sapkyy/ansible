@@ -13,11 +13,11 @@
         upgrade: dist
         force_apt_get: yes
     
-    - name: Check if a reboot is needed on all servers
-      register: reboot_required_file
+    - name: Check if reboot is needed
       stat:
         path: /var/run/reboot-required
-        get_md5: no
+        get_checksum: no
+      register: reboot_required_file
 
     - name: Reboot the server if kernel updated
       reboot:

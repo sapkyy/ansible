@@ -16,6 +16,7 @@
 [docker]
   docker.sapkyy.home
   rustdesk.sapkyy.home
+  vikunja.sapkyy.home
 
 [nginx]
   plex.sapkyy.home proxy_port=32400 upstream_scheme=http
@@ -27,3 +28,9 @@
 
 [proxy]
   proxy.sapkyy.home
+
+[vikunja]
+  vikunja.sapkyy.home
+
+[obsidian]
+  obsidian.sapkyy.home

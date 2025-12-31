@@ -1,2 +1,4 @@
 ---
-apt_package_names: docker.io
+apt_package_names:
+  - docker.io
+  - docker-compose
