@@ -1,5 +1,0 @@
-#!/bin/sh
-PASSWORD="{{ openconnect_tun0_password }}"
-TOKEN=$(oathtool --totp --base32 {{ openconnect_tun0_token }})
-echo "$PASSWORD$TOKEN" | openconnect --user="{{ openconnect_tun0_user }}" "{{ openconnect_tun0_server }}" --script=/lib/netifd/vpnc-script --interface=tun0
-exit 0

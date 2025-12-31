@@ -1,8 +1,0 @@
----
-- import_playbook: docker.yml
-
-- hosts: rustdesk
-  become: true
-  roles:
-    - pkg-install
-    - rustdesk

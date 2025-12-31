@@ -1,3 +1,0 @@
----
-settings_src: settings.json.j2
-settings_dst: /etc/transmission-daemon/settings.json
