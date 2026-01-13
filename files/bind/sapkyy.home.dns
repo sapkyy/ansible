@@ -1,6 +1,6 @@
 $TTL    604800
 @       IN      SOA     sapkyy.home. localhost. (
-                             24         ; Serial
+                             25         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -19,4 +19,5 @@ docker       IN      A       192.168.31.105
 rustdesk     IN      A       192.168.31.106
 proxy        IN      A       192.168.31.107
 obsidian     IN      A       192.168.31.109
+outside      IN      A       192.168.31.151
 vikunja      IN      A       192.168.31.152

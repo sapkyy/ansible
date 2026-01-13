@@ -29,6 +29,9 @@
 [proxy]
   proxy.sapkyy.home
 
+[outside]
+  outside.sapkyy.home
+
 [vikunja]
   vikunja.sapkyy.home
 
