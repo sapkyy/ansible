@@ -17,6 +17,7 @@
   docker.sapkyy.home
   rustdesk.sapkyy.home
   vikunja.sapkyy.home
+  yamtrack.sapkyy.home
 
 [nginx]
   plex.sapkyy.home proxy_port=32400 upstream_scheme=http
@@ -37,3 +38,6 @@
 
 [obsidian]
   obsidian.sapkyy.home
+
+[yamtrack]
+  yamtrack.sapkyy.home
